@@ -8,7 +8,7 @@ test('create an employee object', () => {
 //ID
 test('set id with constructor', () => {
     const testValue = 100;
-    const e = new Employee('Aisha', testValue);
+    const e = new Employee('Diana', testValue);
     
     expect(e.id).toBe(testValue);
 });
@@ -17,7 +17,7 @@ test('set id with constructor', () => {
 //Email
 test('set email with constructor', () => {
     const testValue = 'employee@workemail.com'
-    const e = new Employee('Aisha', 1, testValue);
+    const e = new Employee('Diana', 1, testValue);
 
     expect(e.email).toBe(testValue);
 });
