@@ -28,3 +28,4 @@ test('getRole return Employee', () => {
     const testValue = 'Employee';
     const e = new Employee('Diana', 1, 'employee@workemail.com');
 });
+
