@@ -1,3 +1,5 @@
+const Manager = require("../lib/Manager");
+
 //Exports to generate the HTML page
 module.exports = team => {
     return `
@@ -34,3 +36,91 @@ module.exports = team => {
     </html>
     `;
 };
+
+//Creates the team profile
+
+const createProfile = team => {
+    //Creates the manager's profile
+    const createManager = manager =>{
+    return `
+    <div class ="card employee-card manager-card">
+    <div class ="card-header text-center">
+    <h2 class ="card-title">${Manager.getName()}</h2>
+    <h4 class="card-title"> Title" ${manager.getRole()}</h4>
+    </div>
+
+    <div class="card-body bg-light">
+        <ul class="list-group-item">
+            <li class="list-group-item">ID: ${manager.getId()}</li>
+            <li class="list-group-item">Email: <a href="tel:${manager.getEmail()}">${manager.getEmail()}</a></li>
+            <li class="list-group-item">Office Number: <a href ="tel:${manager.getOfficeNumber()}">${manager.get.getOfficeNumber()}</a></li>
+        </ul>
+    </div>
+    </div>
+    `;
+};
+
+//Create the Engineer's Profile
+const createEngineer = engineer => {
+    return `
+    <div class="card employee-card engineer-card">
+    <div class="card-header text-center">
+        <h2 class="card-title>${engineer.getName()}</h2>
+        <h4 class="card-title>Title: ${engineer.getRole()}</h4>
+    </div>
+
+    <div class="card-body bg-light">
+        <ul class="list-group text-dark">
+            <li class="list-group-item">ID:${engineer.getId()}</li>
+            <li class="list-group-item">Email:<a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+            <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGitHub()}" target="_blank" rel="noopener noreferrer">${engineer.getGitHub()}</a></li>
+        </ul>
+    </div>
+    </div>
+    `;
+};
+
+//Creates Intern's Profile
+
+const createIntern = intern => {
+    return `
+    <div class="card employee-card intern-card">
+    <div class="card-header text-center">
+        <h2 class="card-title">${intern.getName()}</h2>
+        <h4 class="card-title">Title: ${intern.getRole()}</h4>
+    </div>
+    <div class="card-body bg-light">
+        <ul class="list-group text-dark">
+            <li class="list-group-item">ID: ${intern.getId()}</li>
+            <li class="list-group-item">Email:<a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>   
+            <li class="list-group-item">School: ${intern.getSchool()}</li>
+        </ul>
+    </div
+    </div>
+    `;
+};
+
+const html =[];
+
+html.push(team
+    .filter(employee => employee.getRole() === 'Manager')
+    .map(manager => createManager(manager))
+    );
+ html.push(team
+        .filter(employee => employee.getRole() ==='Engineer')
+        .map(engineer => createEngineer(engineer))
+        .join("")
+        );
+html.push(team
+    .filter(employee => employee.getRole() === 'Manager')
+    .map(engineer => createEngineer(engineer))
+    .join("")
+    );
+html.push(team
+    .filter(employee => employee.getRole()  === 'Intern')
+    .map(intern => createIntern(intern))
+    .join("")
+    );
+
+return html.join("");
+}
