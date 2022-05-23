@@ -32,15 +32,15 @@ body {
   }
   
   .manager-card {
-    background-color: #540b0e;
+    background-color: #BC8F8F;
   }
   
   .engineer-card {
-    background-color: #9e2a2b;
+    background-color: #FFEBCD;
   }
   
   .intern-card {
-    background-color: #e09f3e;
+    background-color: #556B2F;
   }
   
   .card-body {

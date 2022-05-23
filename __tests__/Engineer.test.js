@@ -12,12 +12,12 @@ test('creates an engineer object', () => {
 test('set github accoint with constructor', () => {
 const testValue = 'GitHubAccount';
 const e = new Engineer('Samuel', 1 , 'engineer@workemail.com', testValue);
-expect(e.github).toBe(testValue);
+expect(e.getGitHub()).toBe(testValue);
 });
 
 //getRole
 test('getRole value to be Engineer', () => {
     const testValue = "Engineer";
     const e = new Engineer('Samuel', 1, 'engineer@workemail.com', testValue);
-    expect(e.getGitHub()).toBe(testValue);
+    expect(e.getRole()).toBe(testValue);
 });
