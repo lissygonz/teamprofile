@@ -149,7 +149,7 @@ function initApp() {
             {
                 type: "input",
                 name:"engineerGithub",
-                message: "What's the engineer's GitHub username";
+                message: "What's the engineer's GitHub username",
                 validate: answer => {
                     if (answer !== ""){
                         return true;
@@ -175,34 +175,44 @@ function initApp() {
                 name: "internName",
                 message: "What's the intern's name?",
                 validate: answer => {
-                    if (answer !== ""){
+                    if (answer !== "") {
                         return true;
                     }
-                    return "Please enter Intern's name to continue";
+                    return "Please enter at least one character.";
                 }
             },
             {
                 type: "input",
                 name: "internId",
-                message:"What's the intern's id?",
+                message: "What's the intern's id?",
                 validate: answer => {
                     if (answer !== "") {
                         return true;
                     }
-                    return "Please enter Intern's ID to continue";
+                    return "Please enter a valid Intern's ID.";
                 }
             },
             {
                 type: "input",
                 name: "internEmail",
-                message: "What's the intern's school?",
-                vaildate: answer => {
-                    if (anser !== "") {
+                message: "What's the intern's email?",
+                validate: answer => {
+                    if (answer !== "") {
                         return true;
                     }
-                    return "Please entere a school to continue"
+                    return "Email address can't be empty.";
                 }
-                
+            },
+            {
+                type: "input",
+                name: "internSchool",
+                message: "What's the intern's school?",
+                validate: answer => {
+                    if (answer !== "") {
+                        return true;
+                    }
+                    return "Please enter a correct school.";
+                }
             }
         ]).then(answers =>{
             const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
